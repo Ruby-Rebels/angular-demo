@@ -6,11 +6,11 @@
       {
         bio: 'Father of our country',
         name: 'George Washington',
-        bioVisible: false
+        bioVisible: true
       },
       {
-        bio: 'Charles Dickens',
-        name: 'This guy is hilarious',
+        bio: 'This guy is hilarious',
+        name: 'Charles Dickens',
         bioVisible: true
       },
       {
@@ -19,5 +19,20 @@
         bioVisible: true
       }
     ]
+
+    $scope.toggleBio = function(person) {
+      person.bioVisible = !person.bioVisible;
+    }
+
+    $scope.addPerson = function() {
+      $scope.people.push($scope.person);
+      $scope.person = {};
+      console.log($scope.people);
+    }
+
+    $scope.deletePerson = function(index) {
+      $scope.people.splice(index, 1);
+    }
+
   });
 })();
