@@ -1,0 +1,10 @@
+<div ng-app="app">
+  <div ng-controller="peopleCtrl">
+    <div ng-repeat="person in people">
+      <h2>{{ person.name }}</h2>
+      <p ng-if="person.bioVisible">
+        {{ person.bio }}
+      </p>
+    </div>
+  </div>
+</div>
