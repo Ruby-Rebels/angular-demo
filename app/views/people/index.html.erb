@@ -1,5 +1,6 @@
 <div ng-app="app">
   <div ng-controller="peopleCtrl">
+    <h2>{{message}}</h2>
     <div ng-repeat="person in people">
       <h2 ng-click="toggleBio(person)">{{ person.name }}</h2>
       <p ng-class="{strike: person.bioVisible}">
@@ -11,6 +12,7 @@
     <input type="text" placeholder="Name" ng-model="person.name">
     <input type="text" placeholder="Bio" ng-model="person.bio">
     <button type="button" ng-click="addPerson(person)">Add Person</button>
+
     <h3>{{ people.length }}</h3>
   </div>
 </div>
