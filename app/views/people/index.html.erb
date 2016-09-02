@@ -1,13 +1,21 @@
 <div ng-app="app">
   <div ng-controller="peopleCtrl">
     <h2>{{message}}</h2>
-    <div ng-repeat="person in people">
-      <h2 ng-click="toggleBio(person)">{{ person.name }}</h2>
-      <p ng-class="{strike: person.bioVisible}">
+    <ul>
+      <li ng-repeat="error in errors">{{error}}</li>
+    </ul>
+    <datalist id="names">
+      <option ng-repeat="person in people">{{ person.name }}</option>
+    </datalist>
+
+    <input type="text" ng-model="filterName" list="names">
+    <div ng-repeat="person in people | filter: {name: filterName}">
+      <h3>{{person.name}}</h3>
+      <p>
         {{ person.bio }}
       </p>
-      <button type="button" ng-click="deletePerson($index)">Delete</button>
     </div>
+
 
     <input type="text" placeholder="Name" ng-model="person.name">
     <input type="text" placeholder="Bio" ng-model="person.bio">

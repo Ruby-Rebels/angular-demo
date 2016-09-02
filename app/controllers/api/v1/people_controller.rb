@@ -4,10 +4,14 @@ class Api::V1::PeopleController < ApplicationController
   end
 
   def create
-    person = Person.create(
+    person = Person.new(
       name: params[:name],
       bio: params[:bio]
     )
-    render json: {message: "Person was created successfully"}
+    if person.save
+      render json: {message: "Person was created successfully"}
+    else
+      render json: {errors: person.errors.full_messages}, status: 422
+    end
   end
 end

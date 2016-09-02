@@ -10,10 +10,25 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require animate
  *= require_tree .
  *= require_self
  */
 
 .strike {
   text-decoration: line-through;
+}
+
+.ng-enter, .ng-move{
+  -webkit-animation: flip 3s;
+  -moz-animation: flip 3s;
+  -o-animation: flip 3s;
+  animation: flip 3s;
+}
+
+.ng-leave{
+  -webkit-animation: bounce 3s;
+  -moz-animation: bounce 3s;
+  -o-animation: bounce 3s;
+  animation: bounce 3s;
 }
